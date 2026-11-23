@@ -1,8 +1,35 @@
 ﻿internal class Program
 {
+
+    public class NameSpeller()
+    {
+        public string? Name { get; set; }
+
+        public void NameTake()
+        {
+            Console.WriteLine("Please write in your name: ");
+
+            Name = Console.ReadLine();
+        }
+
+        public void NameSpell()
+        {
+            if (Name != null)
+            {
+                for (int i = 0; i < Name.Length; i++)
+                {
+                    Console.WriteLine(Name[i]);
+                }
+            }
+        }
+    }
+
+
     private static void Main(string[] args)
     {
         int newVar = 0;
+
+        var newName = new NameSpeller();
 
         List<int> newArray = new List<int>();
 
@@ -10,29 +37,13 @@
 
         Console.WriteLine("Hello, World!");
 
-        Console.WriteLine("Please input a number in order to start: ");
+        Console.WriteLine("Welcome to the name speller.");
 
-        newVar = int.Parse(Console.ReadLine());
+        newName.NameTake();
 
-        if(newVar != null)
-        {
-            for (int i = 0; i < newVar; i++)
-            {
-                Console.WriteLine("Digite la letra " + (i + 1) + " de su nombre: ");
+        newName.NameSpell();
 
-                newArray.Add(i);
-
-                nameArray.Add(Console.ReadLine());
-
-                if(i == newVar - 1)
-                {
-                    for(int j = 0; j < newVar; j++)
-                    {
-                        Console.WriteLine(nameArray[j]);
-                    }
-                }
-            }
-        }
+        Console.WriteLine("The name that you just typed in is: " + newName.Name);
     }
 }
 
